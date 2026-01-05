@@ -1,0 +1,45 @@
+<section attr="data.main.attributes" css="data.main.css" ko-style="data.main.style" 
+         class="usp-section _common-section">
+
+    <div class="usp-section__content">
+        <!-- Title -->
+        <!-- ko if: data.main.attributes()['title'] -->
+        <h2 class="h3 usp-section__title" data-bind="text: data.main.attributes()['title']"></h2>
+        <!-- /ko -->
+
+        <!-- USP Items -->
+        <!-- ko if: data.main.attributes()['data-items'] -->
+        <ul class="usp-items" data-bind="foreach:{ data: JSON.parse(data.main.attributes()['data-items']), as: 'item' }">
+            <li class="usp-item">
+                <div class="usp-item__body">
+                    <!-- ko if: item.image && item.image[0] && item.image[0].url -->
+                    <div class="usp-item__image">
+                        <img data-bind="attr: { src: item.image[0].url, alt: item.title || '' }" />
+                    </div>
+                    <!-- /ko -->
+
+                    <!-- ko if: item.title -->
+                    <h3 class="usp-item__title h4" data-bind="text: item.title"></h3>
+                    <!-- /ko -->
+
+                    <!-- ko if: item.content -->
+                    <div class="usp-item__description" data-bind="html: item.content"></div>
+                    <!-- /ko -->
+                </div>
+            </li>
+        </ul>
+        <!-- /ko -->
+
+        <!-- Button -->
+        <!-- ko if: data.main.attributes()['enable_button'] == 1 && data.main.attributes()['href'] -->
+        <div class="usp-button-wrapper">
+            <a data-bind="attr: { 
+                href: data.main.attributes()['href'], 
+                target: data.main.attributes()['target'] || '_self',
+                'data-link-type': data.main.attributes()['data-link-type']
+            }, text: data.main.attributes()['button_title'] || 'Learn More'" 
+               class="usp-button btn btn-primary"></a>
+        </div>
+        <!-- /ko -->
+    </div>
+</section>

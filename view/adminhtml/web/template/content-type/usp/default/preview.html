@@ -1,0 +1,28 @@
+<div class="pagebuilder-content-type pagebuilder-usp" event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <div class="placeholder-usp" if="data.main.attributes()['title'] || data.main.attributes()['data-items']" attr="data.main.attributes" css="data.main.css" ko-style="data.main.style">
+        <div class="usp-preview-container">
+            <!-- Title -->
+            <div class="usp-title" if="data.main.attributes()['title']">
+                <h3 data-bind="text: data.main.attributes()['title']"></h3>
+            </div>
+
+            <!-- Items Preview -->
+            <div class="usp-items-preview" if="data.main.attributes()['data-items']">
+                <div class="usp-items-count" data-bind="text: '[USP] ' + JSON.parse(data.main.attributes()['data-items']).length + ' item(s) added'"></div>
+            </div>
+
+            <!-- Button Preview -->
+            <div class="usp-button-preview" if="data.main.attributes()['enable_button'] == 1">
+                <span class="usp-button-indicator">
+                    <span data-bind="text: 'Button: ' + (data.main.attributes()['button_title'] || 'No title') + ' → ' + (data.main.attributes()['href'] || 'No URL')"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="placeholder-usp-empty" ifnot="data.main.attributes()['title'] || data.main.attributes()['data-items']" attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+        <span translate="'Configure USP Component'"></span>
+    </div>
+
+    <render args="getOptions().template" />
+</div>
