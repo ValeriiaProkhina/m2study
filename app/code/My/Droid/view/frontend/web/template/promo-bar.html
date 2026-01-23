@@ -1,0 +1,18 @@
+<div class="promo-bar">
+    <div data-bind = "if: amountLeft() > 0">
+        <span data-bind="text: 'Add ' + getFormattedAmountLeft(amountLeft()) + ' more to your cart to qualify for free shipping!'"></span>
+    </div>
+    <div data-bind = "if: amountLeft() <= 0">
+        <span data-bind="text: 'Congratulations! You have qualified for free shipping!'"></span>
+    </div>
+</div>
+<style>
+    .promo-bar {
+        background-color: #f0c14b;
+        color: #111;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+</style>
