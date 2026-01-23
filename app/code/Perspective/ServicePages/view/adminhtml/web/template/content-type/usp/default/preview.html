@@ -1,0 +1,49 @@
+<div class="pagebuilder-content-type pagebuilder-usp" event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <div class="placeholder-usp" if="data.main.attributes()['title'] || data.main.attributes()['data-items']" attr="data.main.attributes" css="data.main.css" ko-style="data.main.style">
+        <div class="usp-preview-container">
+            <!-- Title and Button Header -->
+            <div class="usp-section__header">
+                <!-- Title -->
+                <!-- ko if: data.main.attributes()['title'] -->
+                <h2 class="h3 usp-section__title" data-bind="text: data.main.attributes()['title']"></h2>
+                <!-- /ko -->
+
+                <!-- Button Link -->
+                <!-- ko if: data.main.attributes()['enable_button'] == 1 && data.main.attributes()['href'] -->
+                <a data-bind="attr: {
+                    href: data.main.attributes()['href'],
+                    target: data.main.attributes()['target'] || '_self',
+                    'data-link-type': data.main.attributes()['data-link-type']
+                }, text: data.main.attributes()['button_title'] || 'Learn More'"
+                   class="usp-section__link"></a>
+                <!-- /ko -->
+            </div>
+
+            <!-- Items Preview -->
+            <!-- ko if: data.main.attributes()['data-items'] -->
+            <div class="usp-items-preview">
+                <div class="usp-items-count" data-bind="text: '[USP] ' + JSON.parse(data.main.attributes()['data-items']).length + ' item(s) added'"></div>
+                <div class="usp-items-list">
+                    <!-- ko foreach: JSON.parse(data.main.attributes()['data-items']) -->
+                    <div class="usp-item-preview">
+                        <div class="item-image" if="$data.image">
+                            <img data-bind="attr: { src: $data.image[0].url }" style="max-width: 300px; max-height: 160px;">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-title" data-bind="text: $data.title"></div>
+                            <div class="item-description" data-bind="html: $data.content"></div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+    </div>
+
+    <div class="placeholder-usp-empty" ifnot="data.main.attributes()['title'] || data.main.attributes()['data-items']" attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+        <span translate="'Configure USP Component'"></span>
+    </div>
+
+    <render args="getOptions().template" />
+</div>
