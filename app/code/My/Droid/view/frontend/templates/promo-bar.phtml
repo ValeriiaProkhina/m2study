@@ -1,0 +1,11 @@
+<div id="promo-bar-scope" data-bind="scope: 'promo-bar-component'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+    {
+    "#promo-bar-scope": {
+        "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+    }
+}
+</script>
