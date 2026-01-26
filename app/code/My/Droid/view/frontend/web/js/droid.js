@@ -17,7 +17,9 @@ define(["uiComponent", "ko"], function (Component, ko) {
             return this;
         },
         changeName: function () {
-            this.droidName("C-3PO");
+
+            this.droidName("CC-3");
         },
     });
 });
+
