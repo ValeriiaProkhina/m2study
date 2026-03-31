@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Sticky sidebar wrapper for homepage grid (mage/sticky).
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$stickyInit = [
+    'sticky' => [
+        'container' => '.homepage-grid-container',
+        'spacingTop' => 20,
+        'stickyClass' => '_sticky',
+    ],
+];
+?>
+<div class="homepage-sidebar"
+    data-mage-init='<?= /* @noEscape */ json_encode($stickyInit, JSON_UNESCAPED_SLASHES) ?>'>
+    <?= $block->getChildHtml('quick_info') ?>
+</div>
