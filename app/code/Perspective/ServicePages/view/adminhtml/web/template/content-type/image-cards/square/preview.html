@@ -1,0 +1,32 @@
+<section class="cms-block-image-cards image-cards-square pagebuilder-content-type children-min-height"
+         attr="data.main.attributes"
+         ko-style="data.main.style"
+         event="{ mouseover: onMouseOver, mouseout: onMouseOut },  mouseoverBubble: false">
+    <render args="getOptions().template"></render>
+
+    <div class="image-cards-header">
+        <h2 class="image-cards-title" attr="data.title.attributes" ko-style="data.title.style" data-bind="liveEdit: { field: 'title_text', placeholder: $t('Title') }"></h2>
+        <p class="image-cards-subtitle" attr="data.subtitle.attributes" ko-style="data.subtitle.style" data-bind="liveEdit: { field: 'subtitle_text', placeholder: $t('Subtitle') }"></p>
+    </div>
+
+    <p class="image-cards-placeholder" ifnot="contentType.getChildren()().length">Drag Image Card Elements Here</p>
+
+    <div class="image-cards-grid element-children content-type-container"
+         each="contentType.getChildren()"
+         css="getChildrenCss()"
+         attr="{id: contentType.id + '-children'}"
+         data-bind="sortable: getSortableOptions()"
+         afterRender="function (element) { if (typeof afterChildrenRender === 'function') { afterChildrenRender(element); } }">
+        <if args="$parent.isContainer()">
+            <div class="pagebuilder-drop-indicator"></div>
+        </if>
+        <div class="pagebuilder-content-type-wrapper"
+             template="{ name: preview.template, data: preview, afterRender: function () { preview.dispatchAfterRenderEvent.apply(preview, arguments); } }"
+             attr="{ id: id }"
+             css="{'pagebuilder-content-type-hidden': !preview.display()}">
+        </div>
+        <if args="$parent.isContainer() && $index() === $parent.contentType.getChildren()().length - 1">
+            <div class="pagebuilder-drop-indicator"></div>
+        </if>
+    </div>
+</section>

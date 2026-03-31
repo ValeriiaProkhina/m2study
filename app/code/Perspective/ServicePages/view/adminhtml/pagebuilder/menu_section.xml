@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/menu_sections.xsd">
     <menu_section name="single-service" translate="label" sortOrder="100" label="Service"/>
+    <menu_section name="custom_content" translate="label" sortOrder="110" label="Custom Content"/>
 </config>

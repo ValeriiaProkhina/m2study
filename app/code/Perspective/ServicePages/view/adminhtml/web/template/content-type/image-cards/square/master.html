@@ -1,0 +1,13 @@
+<section class="cms-block-image-cards image-cards-square"
+         attr="data.main.attributes"
+         ko-style="data.main.style">
+    <div class="image-cards--container">
+        <div class="image-cards-header" ifnot="!data.title.html() && !data.subtitle.html()">
+            <h2 class="image-cards-title" if="data.title.html()" attr="data.title.attributes" ko-style="data.title.style" html="data.title.html"></h2>
+            <p class="image-cards-subtitle" if="data.subtitle.html()" attr="data.subtitle.attributes" ko-style="data.subtitle.style" html="data.subtitle.html"></p>
+        </div>
+        <div class="image-cards-grid">
+            <render args="masterTemplate"></render>
+        </div>
+    </div>
+</section>
