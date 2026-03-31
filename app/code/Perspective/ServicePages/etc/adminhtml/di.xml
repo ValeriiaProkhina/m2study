@@ -1,11 +1,37 @@
 <?xml version="1.0"?>
 <!--
-    Scoped DI for admin PageBuilder USP item modal cancel button.
+    Scoped DI for admin PageBuilder content type cancel buttons and VisualSelect sources.
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <virtualType name="Perspective\ServicePages\Block\Adminhtml\ContentType\Edit\UspModalCancelButton" type="Magento\PageBuilder\Block\Adminhtml\ContentType\Edit\CancelButton">
         <arguments>
             <argument name="targetName" xsi:type="string">ns = pagebuilder_usp_form, index = usp_item_modal</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceImageCards" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">square</item>
+                    <item name="title" xsi:type="string" translate="true">Square</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">vertical</item>
+                    <item name="title" xsi:type="string" translate="true">Vertical</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceImageCard" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
         </arguments>
     </virtualType>
 </config>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="image_card"
+          label="Image Card"
+          component="Magento_PageBuilder/js/content-type"
+          preview_component="Perspective_ServicePages/js/content-type/image-card/preview"
+          form="pagebuilder_image_card_form"
+          sortOrder="21"
+          translate="label">
+        <parents default_policy="deny">
+            <parent name="image_cards" policy="allow"/>
+        </parents>
+        <children default_policy="deny"/>
+        <appearances>
+            <appearance default="true"
+                        name="default"
+                        preview_template="Perspective_ServicePages/content-type/image-card/default/preview"
+                        master_template="Perspective_ServicePages/content-type/image-card/default/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="main">
+                        <attribute name="name" source="data-content-type"/>
+                        <attribute name="appearance" source="data-appearance"/>
+                        <attribute name="image_position_desktop" source="data-image-position-desktop"/>
+                        <attribute name="image_position_mobile" source="data-image-position-mobile"/>
+                        <style name="max_width" source="max_width" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                    </element>
+                    <element name="image">
+                        <attribute name="image_src" source="src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                    <element name="title">
+                        <html name="title_text"/>
+                    </element>
+                    <element name="body">
+                        <html name="body_text"/>
+                    </element>
+                    <element name="link">
+                        <html name="link_text"/>
+                        <attribute name="link_href" reader="Magento_PageBuilder/js/property/link" persistence_mode="read"/>
+                        <attribute name="virtual_link_href" storage_key="link_href" source="href" converter="Magento_PageBuilder/js/converter/attribute/link-href" persistence_mode="write"/>
+                        <attribute name="virtual_link_target" storage_key="link_href" source="target" converter="Magento_PageBuilder/js/converter/attribute/link-target" persistence_mode="write"/>
+                        <attribute name="virtual_link_type" storage_key="link_href" source="data-link-type" converter="Magento_PageBuilder/js/converter/attribute/link-type" persistence_mode="write"/>
+                    </element>
+                </elements>
+            </appearance>
+        </appearances>
+        <additional_data>
+            <item name="uploaderConfig" xsi:type="array">
+                <item name="maxFileSize" xsi:type="number">4194304</item>
+                <item name="allowedExtensions" xsi:type="string">jpg jpeg gif png</item>
+                <item name="component" xsi:type="string">Magento_PageBuilder/js/form/element/image-uploader</item>
+                <item name="componentType" xsi:type="string">imageUploader</item>
+                <item name="dataScope" xsi:type="string">image_src</item>
+                <item name="formElement" xsi:type="string">imageUploader</item>
+                <item name="uploaderConfig" xsi:type="array">
+                    <item name="url" xsi:type="object">Magento\PageBuilder\Model\Config\ContentType\AdditionalData\Provider\Uploader\SaveUrl</item>
+                </item>
+                <item name="previewTmpl" xsi:type="string">Magento_PageBuilder/form/element/uploader/preview</item>
+                <item name="template" xsi:type="string">Magento_PageBuilder/form/element/uploader/preview/image</item>
+                <item name="mediaGallery" xsi:type="array">
+                    <item name="openDialogUrl" xsi:type="object">Magento\PageBuilder\Model\Config\ContentType\AdditionalData\Provider\Uploader\OpenDialogUrl</item>
+                    <item name="openDialogTitle" xsi:type="string" translate="true">Insert Images...</item>
+                    <item name="initialOpenSubpath" xsi:type="string">wysiwyg</item>
+                    <item name="storeId" xsi:type="object">Magento\PageBuilder\Model\Config\ContentType\AdditionalData\Provider\StoreId</item>
+                </item>
+            </item>
+        </additional_data>
+    </type>
+</config>

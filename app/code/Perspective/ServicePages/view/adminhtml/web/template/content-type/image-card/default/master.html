@@ -1,0 +1,12 @@
+<article class="image-card" attr="data.main.attributes" ko-style="data.main.style">
+    <div class="image-card-image-wrapper" if="data.image.attributes().src">
+        <img class="image-card-image" attr="data.image.attributes" alt="" />
+    </div>
+    <div class="image-card-content">
+        <h3 class="image-card-title" if="data.title.html()" attr="data.title.attributes" html="data.title.html"></h3>
+        <p class="image-card-body" if="data.body.html()" attr="data.body.attributes" html="data.body.html"></p>
+    </div>
+    <div class="image-card-link--container">
+        <a class="image-card-link" if="data.link.html()" attr="data.link.attributes" html="data.link.html"></a>
+    </div>
+</article>
