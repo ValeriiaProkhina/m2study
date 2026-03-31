@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="homepage.grid.container" htmlTag="div" htmlClass="homepage-grid-container" before="-">
+                <container name="homepage.main.content" htmlTag="div" htmlClass="homepage-main-content"/>
+                <block class="Magento\Framework\View\Element\Template" name="homepage.sidebar.wrapper" template="Magento_Cms::homepage/homepage-sidebar.phtml">
+                    <block class="Magento\Framework\View\Element\Template" name="homepage.quick.info.collapsible" as="quick_info" template="Magento_Cms::homepage/quick-info-collapsible.phtml"/>
+                </block>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="homepage.main.content">
+            <block class="Magento\Framework\View\Element\Template" name="homepage.test.block" template="Magento_Cms::like-counter.phtml"/>
+        </referenceContainer>   
+        <move element="cms_page" destination="homepage.main.content" after="-"/>
+    </body>
+</page>
