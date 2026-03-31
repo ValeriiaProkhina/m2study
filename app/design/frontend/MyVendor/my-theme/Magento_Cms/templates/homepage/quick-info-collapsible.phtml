@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * Homepage accordion (mage/accordion) — quick info.
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<div class="homepage-quick-info">
+    <header class="homepage-quick-info__intro">
+        <p class="homepage-quick-info__eyebrow"><?= $escaper->escapeHtml(__('Before you shop')) ?></p>
+        <h2 class="homepage-quick-info__heading"><?= $escaper->escapeHtml(__('Quick info')) ?></h2>
+    </header>
+
+    <div id="quick-info-accordion"
+         class="homepage-quick-info__accordion"
+         data-mage-init='<?= /* @noEscape */ json_encode([
+             'accordion' => [
+                 'active' => [0],
+                 'collapsible' => true,
+                 'multipleCollapsible' => false,
+                 'openedState' => 'active',
+                 'openOnFocus' => false,
+                 'animate' => [
+                     'duration' => 420,
+                     'easing' => 'swing',
+                 ],
+             ],
+         ]) ?>'>
+
+        <div data-role="collapsible" class="homepage-quick-info__panel">
+            <div data-role="trigger" class="homepage-quick-info__trigger-wrap">
+                <button type="button"
+                        class="homepage-quick-info__trigger"
+                        id="quick-info-heading-delivery"
+                        aria-controls="quick-info-panel-delivery">
+                    <span class="homepage-quick-info__trigger-label"><?= $escaper->escapeHtml(__('Delivery times')) ?></span>
+                </button>
+            </div>
+        </div>
+        <div data-role="content"
+             class="homepage-quick-info__content"
+             id="quick-info-panel-delivery"
+             aria-labelledby="quick-info-heading-delivery"
+             role="region">
+            <div class="homepage-quick-info__content-inner">
+                <p><?= $escaper->escapeHtml(__('Place your order before the cut-off time for faster processing. Add your real store rules here — carriers, cities, and same-day windows.')) ?></p>
+            </div>
+        </div>
+
+        <div data-role="collapsible" class="homepage-quick-info__panel">
+            <div data-role="trigger" class="homepage-quick-info__trigger-wrap">
+                <button type="button"
+                        class="homepage-quick-info__trigger"
+                        id="quick-info-heading-returns"
+                        aria-controls="quick-info-panel-returns">
+                    <span class="homepage-quick-info__trigger-label"><?= $escaper->escapeHtml(__('Returns')) ?></span>
+                </button>
+            </div>
+        </div>
+        <div data-role="content"
+             class="homepage-quick-info__content"
+             id="quick-info-panel-returns"
+             aria-labelledby="quick-info-heading-returns"
+             role="region">
+            <div class="homepage-quick-info__content-inner">
+                <p><?= $escaper->escapeHtml(__('Typical shops describe the return window and item condition here. Mention fitting, tags, and exceptions (underwear, sale) for your assortment.')) ?></p>
+            </div>
+        </div>
+    </div>
+</div>
