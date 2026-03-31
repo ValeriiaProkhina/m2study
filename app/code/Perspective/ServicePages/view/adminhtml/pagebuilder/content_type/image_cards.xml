@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
     <type name="image_cards"
-          label="Attributes Grid"
+          label="Image Cards"
           component="Magento_PageBuilder/js/content-type-collection"
           preview_component="Perspective_ServicePages/js/content-type/image-cards/preview"
           master_component="Magento_PageBuilder/js/content-type/master-collection"

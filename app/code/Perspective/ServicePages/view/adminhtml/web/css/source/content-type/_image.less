@@ -1,10 +1,13 @@
 & when (@media-common = true) {
+    // Make uploader visible inside image_card (default CSS hides it for non-.pagebuilder-image wrappers)
+    [data-content-type="image_card"] .pagebuilder-image-uploader-container,
+    [data-content-type="image_cards"] .pagebuilder-image-uploader-container {
+        visibility: visible;
+    }
+
     [data-content-type="image_cards"] {
         h2, h3, p, a, span {
             color: inherit;
-        }
-        .pagebuilder-image-uploader-container {
-            visibility: visible;
         }
         .pagebuilder-image-uploader-container.has-data {
             height: 80%;

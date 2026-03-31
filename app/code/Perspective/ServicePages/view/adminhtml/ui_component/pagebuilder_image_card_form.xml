@@ -82,15 +82,6 @@
                             <param xsi:type="string" name="url">pagebuilder/contenttype/image_upload</param>
                         </uploaderConfig>
                         <previewTmpl>Magento_PageBuilder/form/element/uploader/preview</previewTmpl>
-                        <template>Magento_PageBuilder/form/element/uploader/preview/image</template>
-                        <mediaGallery>
-                            <settings>
-                                <openDialogUrl>cms/wysiwyg_images/index</openDialogUrl>
-                                <openDialogTitle translate="true">Insert Images...</openDialogTitle>
-                                <storeId>0</storeId>
-                                <initialOpenSubpath>wysiwyg/image-cards</initialOpenSubpath>
-                            </settings>
-                        </mediaGallery>
                     </settings>
                 </imageUploader>
             </formElements>

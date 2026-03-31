@@ -1,6 +1,10 @@
 <article class="image-card" attr="data.main.attributes" ko-style="data.main.style">
-    <div class="image-card-image-wrapper" if="data.image.attributes().src">
-        <img class="image-card-image" attr="data.image.attributes" alt="" />
+    <render args="getOptions().template"></render>
+    <div class="image-card-image-wrapper">
+        <scope args="getUploader().getUiComponent()">
+            <render></render>
+        </scope>
+        <img if="data.image.attributes().src" class="image-card-image" attr="data.image.attributes" alt="" />
     </div>
     <div class="image-card-content">
         <h3 class="image-card-title" if="data.title.html()" attr="data.title.attributes" html="data.title.html"></h3>

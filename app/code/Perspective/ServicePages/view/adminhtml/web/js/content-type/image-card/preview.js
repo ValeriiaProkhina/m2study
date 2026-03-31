@@ -7,9 +7,10 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 define([
     "Magento_PageBuilder/js/events",
+    "Magento_PageBuilder/js/content-type-menu/hide-show-option",
     "Magento_PageBuilder/js/uploader",
     "Magento_PageBuilder/js/content-type/preview"
-], function (_events, _uploader, _preview) {
+], function (_events, _hideShowOption, _uploader, _preview) {
 
     var Preview = /*#__PURE__*/function (_preview2) {
         "use strict";
@@ -21,6 +22,19 @@ define([
         }
 
         var _proto = Preview.prototype;
+
+        _proto.retrieveOptions = function retrieveOptions() {
+            var options = _preview2.prototype.retrieveOptions.call(this);
+            options.hideShow = new _hideShowOption({
+                preview: this,
+                icon: _hideShowOption.showIcon,
+                title: _hideShowOption.showText,
+                action: this.onOptionVisibilityToggle,
+                classes: ["hide-show-content-type"],
+                sort: 40
+            });
+            return options;
+        };
 
         /**
          * Get registry callback reference to uploader UI component
