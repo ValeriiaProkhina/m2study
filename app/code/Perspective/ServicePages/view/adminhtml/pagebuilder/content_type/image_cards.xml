@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="image_cards"
+          label="Image Cards"
+          component="Magento_PageBuilder/js/content-type-collection"
+          preview_component="Perspective_ServicePages/js/content-type/image-cards/preview"
+          master_component="Magento_PageBuilder/js/content-type/master-collection"
+          form="pagebuilder_image_cards_form"
+          menu_section="custom_content"
+          sortOrder="20"
+          translate="label">
+        <children default_policy="deny">
+            <child name="image_card" policy="allow"/>
+        </children>
+        <appearances>
+            <appearance default="true"
+                        name="square"
+                        preview_template="Perspective_ServicePages/content-type/image-cards/square/preview"
+                        master_template="Perspective_ServicePages/content-type/image-cards/square/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="main">
+                        <attribute name="name" source="data-content-type"/>
+                        <attribute name="appearance" source="data-appearance"/>
+                        <style name="background_color" source="background-color" converter="Magento_PageBuilder/js/converter/style/color"/>
+                        <style name="text_color" source="color" converter="Magento_PageBuilder/js/converter/style/color"/>
+                        <style name="margins" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/margins" converter="Magento_PageBuilder/js/converter/style/margins"/>
+                        <style name="padding" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/paddings" converter="Magento_PageBuilder/js/converter/style/paddings"/>
+                        <css name="css_classes"/>
+                    </element>
+                    <element name="title">
+                        <html name="title_text"/>
+                        <style name="title_font_weight" source="font-weight"/>
+                    </element>
+                    <element name="subtitle">
+                        <html name="subtitle_text"/>
+                        <style name="subtitle_font_weight" source="font-weight"/>
+                    </element>
+                </elements>
+            </appearance>
+            <appearance name="vertical"
+                        preview_template="Perspective_ServicePages/content-type/image-cards/vertical/preview"
+                        master_template="Perspective_ServicePages/content-type/image-cards/vertical/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="main">
+                        <attribute name="name" source="data-content-type"/>
+                        <attribute name="appearance" source="data-appearance"/>
+                        <style name="background_color" source="background-color" converter="Magento_PageBuilder/js/converter/style/color"/>
+                        <style name="text_color" source="color" converter="Magento_PageBuilder/js/converter/style/color"/>
+                        <style name="margins" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/margins" converter="Magento_PageBuilder/js/converter/style/margins"/>
+                        <style name="padding" storage_key="margins_and_padding" reader="Magento_PageBuilder/js/property/paddings" converter="Magento_PageBuilder/js/converter/style/paddings"/>
+                        <css name="css_classes"/>
+                    </element>
+                    <element name="title">
+                        <html name="title_text"/>
+                        <style name="title_font_weight" source="font-weight"/>
+                    </element>
+                    <element name="subtitle">
+                        <html name="subtitle_text"/>
+                        <style name="subtitle_font_weight" source="font-weight"/>
+                    </element>
+                </elements>
+            </appearance>
+        </appearances>
+    </type>
+</config>

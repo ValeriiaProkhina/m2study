@@ -38,5 +38,10 @@ define([
                 window.checkoutConfig ? window.checkoutConfig.format : {},
             );
         },
+
+        getProgressPercent: function () {
+            var percent = (this.cartSubtotal() / this.freeShipping) * 100;
+            return Math.min(percent, 100);
+        },
     });
 });
