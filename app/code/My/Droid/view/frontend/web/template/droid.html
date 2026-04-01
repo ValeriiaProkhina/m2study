@@ -1,18 +1,7 @@
-<!--
-    droid.html — Knockout шаблон для демонстрації:
-      • ko.observable      → droidName, status
-      • ko.observableArray → missions (foreach)
-      • ko.computed        → missionCount, statusLabel
-      • $t()               → переклади рядків
-      • event binding      → click: method, click: $parent.method.bind($parent, $data)
--->
 <div class="droid-block">
 
     <!-- === ko.observable === -->
-    <!--
-        data-bind="text: droidName" — відображає значення observable.
-        $t() — виклик mage/translate прямо в шаблоні (доступний глобально в KO).
-    -->
+    
     <h3 class="droid-block__title">
         <span data-bind="text: $t('Droid: ')"></span>
         <strong data-bind="text: droidName"></strong>
@@ -21,10 +10,7 @@
     <p class="droid-block__welcome" data-bind="text: welcomeMessage"></p>
 
     <!-- === ko.computed === -->
-    <!--
-        statusLabel і missionCount — computed, оновлюються автоматично
-        при зміні missions() або status().
-    -->
+    
     <p class="droid-block__status" data-bind="visible: statusLabel, text: statusLabel"></p>
     <p class="droid-block__count"
        data-bind="text: $t('Active missions: %1').replace('%1', missionCount())">
@@ -36,40 +22,27 @@
             <span data-bind="text: $t('Change Droid Name')"></span>
         </button>
 
-        <!--
-            click: addMission — метод викликається без аргументів.
-            KO автоматично передає (data, event), але ми їх ігноруємо.
-        -->
+        
         <button class="action secondary" data-bind="click: addMission">
             <span data-bind="text: $t('Add Mission')"></span>
         </button>
     </div>
 
     <!-- === ko.observableArray + foreach === -->
-    <!--
-        foreach: missions — KO рендерить <li> для кожного елемента масиву.
-        При push/remove DOM оновлюється автоматично.
-
-        $data    — поточний елемент ітерації ({ id, title })
-        $parent  — контекст батьківського компонента (сам droid.js)
-        $index() — індекс поточного елемента (observable)
-    -->
+    
     <ul class="droid-block__missions" data-bind="foreach: missions">
         <li class="droid-block__mission-item">
             <span class="droid-block__mission-id"   data-bind="text: '#' + id"></span>
             <span class="droid-block__mission-title" data-bind="text: title"></span>
 
-            <!--
-                bind($parent, $data) — передаємо конкретний об'єкт у removeMission.
-                Без bind() KO передав би тільки (data, event).
-            -->
+            
             <button class="droid-block__remove"
                     data-bind="click: $parent.removeMission.bind($parent, $data)"
                     title="Remove">✕</button>
         </li>
     </ul>
 
-    <!-- Повідомлення коли масив порожній -->
+    
     <!-- ko if: missions().length === 0 -->
     <p class="droid-block__empty" data-bind="text: $t('No active missions.')"></p>
     <!-- /ko -->

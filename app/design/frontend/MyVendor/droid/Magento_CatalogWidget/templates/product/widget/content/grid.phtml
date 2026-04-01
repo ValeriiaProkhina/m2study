@@ -47,7 +47,9 @@ use Magento\Wishlist\Helper\Data;
                     <?php $iterator = 1; ?>
                     <?php foreach ($items as $_item): ?>
                         <?= /* @noEscape */ ($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
-                        <?php $initData = [
+                        <?php 
+                    
+                        $initData = [
                             'productCardHandler' => [
                                 'productName' => $escaper->escapeHtml($_item->getName()),
                             ]

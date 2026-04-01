@@ -29,7 +29,7 @@
                     </argument>
                 </arguments>
             </block>
-        </referenceContainer>   
+        </referenceContainer>
         <move element="cms_page" destination="homepage.main.content" after="-"/>
     </body>
 </page>
