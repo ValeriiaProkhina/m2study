@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <my_droid_promo>
+            <general>
+                <background_color>#f0c14b</background_color>
+                <text_color>#111111</text_color>
+            </general>
+        </my_droid_promo>
+    </default>
+</config>

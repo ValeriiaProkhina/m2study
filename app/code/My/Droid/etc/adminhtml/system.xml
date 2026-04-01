@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="my_droid" translate="label" sortOrder="200">
+            <label>My Droid</label>
+        </tab>
+
+        <section id="my_droid_promo" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Promo Bar Settings</label>
+            <tab>my_droid</tab>
+            <resource>My_Droid::config</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+
+                <field id="background_color" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Color</label>
+                    <comment>Choose the background color for the promo bar</comment>
+                    <validate>color</validate>
+                </field>
+
+                <field id="text_color" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text Color</label>
+                    <comment>Choose the text color for the promo bar</comment>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>
