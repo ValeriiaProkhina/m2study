@@ -11,6 +11,28 @@
         </referenceContainer>
         <referenceContainer name="homepage.main.content">
             <block class="Magento\Framework\View\Element\Template" name="homepage.test.block" template="Magento_Cms::like-counter.phtml"/>
+            <!--
+                Droid KO demo на homepage.
+                jsLayout → компонент My_Droid/js/droid ініціалізується через
+                Magento_Ui/js/core/app у droid.phtml.
+            -->
+            <block class="Magento\Framework\View\Element\Template"
+                   name="homepage.droid.demo"
+                   template="My_Droid::droid.phtml"
+                   after="homepage.test.block">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="droid-component" xsi:type="array">
+                                <item name="component" xsi:type="string">My_Droid/js/droid</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="welcomeMessage" xsi:type="string" translate="true">Meet your droid!</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
         </referenceContainer>   
         <move element="cms_page" destination="homepage.main.content" after="-"/>
     </body>

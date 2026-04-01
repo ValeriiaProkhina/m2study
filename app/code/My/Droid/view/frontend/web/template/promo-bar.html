@@ -1,4 +1,4 @@
-<div class="promo-bar">
+<div class="promo-bar" data-bind="style: { backgroundColor: backgroundColor, color: textColor }">
     <div data-bind="if: amountLeft() > 0">
         <span data-bind="text: 'Add ' + getFormattedAmountLeft(amountLeft()) + ' more to your cart to qualify for free shipping!'"></span>
     </div>

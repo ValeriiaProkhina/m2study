@@ -10,6 +10,8 @@ define([
         defaults: {
             template: "My_Droid/promo-bar",
             freeShipping: 100,
+            backgroundColor: '#f0c14b',
+            textColor: '#111111',
         },
 
         initialize: function () {
